@@ -1,3 +1,6 @@
+<img width="1457" height="806" alt="image" src="https://github.com/user-attachments/assets/de8a2e3f-2ad2-428e-8b18-a3f51a262724" />
+<img width="1450" height="805" alt="image" src="https://github.com/user-attachments/assets/722f4f81-56af-4ced-9308-cd128879ef0f" />
+
 # Retail-Supply-Chain-Analytics-Dashboard
 An interactive Power BI dashboard for analyzing retail supply chain performance across Road, Sea, Rail, and Air transportation using KPIs, DAX measures, and business intelligence techniques.
 
@@ -65,6 +68,8 @@ Includes:
 
 ### 🚛 Road Analysis
 
+<img width="1435" height="797" alt="image" src="https://github.com/user-attachments/assets/a8c24ef4-2197-4858-ae67-89ffde632d70" />
+
 Focuses on road transportation performance.
 
 Includes:
@@ -79,6 +84,8 @@ Includes:
 
 ### 🚢 Sea Analysis
 
+<img width="1447" height="807" alt="image" src="https://github.com/user-attachments/assets/c169961f-fe7e-4913-84e4-07cdc8ccb9aa" />
+
 Analyzes maritime logistics.
 
 Includes:
@@ -92,6 +99,8 @@ Includes:
 
 ### 🚆 Train Analysis
 
+<img width="1470" height="801" alt="image" src="https://github.com/user-attachments/assets/3e1b1a16-64ba-4773-a834-f741a529d64b" />
+
 Evaluates rail freight performance.
 
 Includes:
@@ -104,6 +113,8 @@ Includes:
 ---
 
 ### ✈️ Air Analysis
+
+<img width="1522" height="805" alt="image" src="https://github.com/user-attachments/assets/232e79e1-17e9-427d-b3aa-7cbfde878daf" />
 
 Monitors air cargo operations.
 
