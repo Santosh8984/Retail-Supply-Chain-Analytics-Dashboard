@@ -25,7 +25,7 @@ from retail_data
 group by Product_Category,Warehouse_Location
 order by avg_utilization desc;
 
--- Using a window function (RANK() OVER PARTITION BY Product_Category ORDER
+4 -- Using a window function (RANK() OVER PARTITION BY Product_Category ORDER
 -- BY Revenue_USD DESC), find the top 3 revenue-generating products within each
 -- category.
 WITH RankedProducts AS (
@@ -48,7 +48,7 @@ WHERE Revenue_Rank <= 3
 ORDER BY Product_Category, Revenue_Rank
 ;
 
--- Write a CTE that flags suppliers with below-average On_Time_Delivery_Rate AND
+5 -- Write a CTE that flags suppliers with below-average On_Time_Delivery_Rate AND
 -- above-average Supply_Disruption_Risk — these are your highest-priority suppliers
 -- to renegotiate with.
 WITH Supplier_Performance AS (
@@ -71,7 +71,7 @@ WHERE On_Time_Delivery_Rate < Avg_On_Time_Delivery
   AND Supply_Disruption_Risk > Avg_Disruption_Risk
 ORDER BY Supply_Disruption_Risk DESC,
          On_Time_Delivery_Rate ASC;
--- Supplier reliability scorecard — For each Supplier_ID, 
+6 -- Supplier reliability scorecard — For each Supplier_ID, 
 -- calculate average On_Time_Delivery_Rate, average Lead_Time_Days, 
 -- and total Revenue_USD generated from their products.
 --  Filter suppliers with Supplier_Rating below 3.
@@ -86,7 +86,7 @@ select
     group by Supplier_ID,Supplier_Rating
     order by Total_Revenue Desc;
 
--- Warehouse profitability — Find total Revenue_USD, total Profit_USD,
+7 -- Warehouse profitability — Find total Revenue_USD, total Profit_USD,
 --  and profit margin (Profit/Revenue * 100) per Warehouse_Location,
 --  ordered by margin descending.
 SELECT
@@ -98,7 +98,7 @@ FROM retail_data
 GROUP BY Warehouse_Location
 ORDER BY Profit_Margin DESC;
 
--- Transportation mode cost efficiency — For each Transportation_Mode,
+8 -- Transportation mode cost efficiency — For each Transportation_Mode,
 --  compute average Shipping_Cost_USD per unit sold (Shipping_Cost_USD / Units_Sold) 
 --  and average Delivery_Time_Days.
 select 
