@@ -16,7 +16,7 @@ group by unique_supplier
 having	avg_led_time>7;
 
 3-- Write a query to COUNT the number of products per Warehouse_Location and their
-average Utilization_Rate.
+-- average Utilization_Rate.
 select
 Product_Category,
 Warehouse_Location,
@@ -25,9 +25,9 @@ from retail_data
 group by Product_Category,Warehouse_Location
 order by avg_utilization desc;
 
-Using a window function (RANK() OVER PARTITION BY Product_Category ORDER
-BY Revenue_USD DESC), find the top 3 revenue-generating products within each
-category.
+-- Using a window function (RANK() OVER PARTITION BY Product_Category ORDER
+-- BY Revenue_USD DESC), find the top 3 revenue-generating products within each
+-- category.
 WITH RankedProducts AS (
     SELECT
         Product_Category,
@@ -48,11 +48,9 @@ WHERE Revenue_Rank <= 3
 ORDER BY Product_Category, Revenue_Rank
 ;
 
-Write a CTE that flags suppliers with below-average On_Time_Delivery_Rate AND
-above-average Supply_Disruption_Risk — these are your highest-priority suppliers
-to renegotiate with.
-
-    
+-- Write a CTE that flags suppliers with below-average On_Time_Delivery_Rate AND
+-- above-average Supply_Disruption_Risk — these are your highest-priority suppliers
+-- to renegotiate with.
 WITH Supplier_Performance AS (
     SELECT
         Supplier_ID,
@@ -73,12 +71,10 @@ WHERE On_Time_Delivery_Rate < Avg_On_Time_Delivery
   AND Supply_Disruption_Risk > Avg_Disruption_Risk
 ORDER BY Supply_Disruption_Risk DESC,
          On_Time_Delivery_Rate ASC;
-
-
-Supplier reliability scorecard — For each Supplier_ID, 
-calculate average On_Time_Delivery_Rate, average Lead_Time_Days, 
-and total Revenue_USD generated from their products.
- Filter suppliers with Supplier_Rating below 3.
+-- Supplier reliability scorecard — For each Supplier_ID, 
+-- calculate average On_Time_Delivery_Rate, average Lead_Time_Days, 
+-- and total Revenue_USD generated from their products.
+--  Filter suppliers with Supplier_Rating below 3.
 select 
 	Supplier_ID,
     Supplier_Rating,
@@ -90,9 +86,9 @@ select
     group by Supplier_ID,Supplier_Rating
     order by Total_Revenue Desc;
 
-Warehouse profitability — Find total Revenue_USD, total Profit_USD,
- and profit margin (Profit/Revenue * 100) per Warehouse_Location,
- ordered by margin descending.
+-- Warehouse profitability — Find total Revenue_USD, total Profit_USD,
+--  and profit margin (Profit/Revenue * 100) per Warehouse_Location,
+--  ordered by margin descending.
 SELECT
     Warehouse_Location,
     CONCAT(ROUND(SUM(Revenue_USD) / 1000000000, 1), 'B') AS Total_Revenue,
@@ -102,9 +98,9 @@ FROM retail_data
 GROUP BY Warehouse_Location
 ORDER BY Profit_Margin DESC;
 
-Transportation mode cost efficiency — For each Transportation_Mode,
- compute average Shipping_Cost_USD per unit sold (Shipping_Cost_USD / Units_Sold) 
- and average Delivery_Time_Days.
+-- Transportation mode cost efficiency — For each Transportation_Mode,
+--  compute average Shipping_Cost_USD per unit sold (Shipping_Cost_USD / Units_Sold) 
+--  and average Delivery_Time_Days.
 select 
  Transportation_Mode,
  round(avg(Delivery_Time_Days)) as Avg_Delivery_Time_Days,
